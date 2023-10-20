@@ -4,7 +4,7 @@ inputs:
   command:
     description: 'Command to run'
     required: true
-  max_retry:
+  max_retries:
     description: 'Maximum number of attends to retry the command. Default 3'
     default: 3
     required: false
@@ -38,5 +38,5 @@ runs:
               return $exit_code
             fi
           }
-          retry ${{ inputs.max_retry }} ${{ inputs.retry_wait }}s "${{ inputs.command }}"
+          retry ${{ inputs.max_retries }} ${{ inputs.retry_wait }}s "${{ inputs.command }}"
       shell: bash
