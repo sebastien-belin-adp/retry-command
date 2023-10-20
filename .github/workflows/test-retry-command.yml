@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Command'
+        type: string
+        required: true
+
+jobs:
+  windows:
+    name: Build and Publish Windows Installer
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run command
+        uses: sebastien-belin-adp/retry-command@main
+        with:
+         command: ./gradlew check
+         max_retries: 5
+         retry_wait: 2
