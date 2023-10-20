@@ -30,8 +30,10 @@ runs:
             # reached the maximum number of retries, run the command again
             if [[ $exit_code -ne 0 && $retries -gt 0 ]]; then
               # Wait before attending a retry
+              println "Wait before retring command"
               sleep $retryWait
-          
+
+              println "Retry command for the $retries time(s)"
               retry $(($retries - 1)) $retryWait "$command"
             else
               # Return the exit code from the command
