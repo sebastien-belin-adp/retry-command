@@ -14,8 +14,10 @@ jobs:
 
     steps:
       - name: Run command
-        uses: sebastien-belin-adp/retry-command@main
+        uses: nick-fields/retry@v2
         with:
-         command: ./gradlew check
-         max_retries: 5
-         retry_wait: 2
+          timeout_minutes: 10
+          max_attempts: 5
+          retry_wait_seconds: 2
+          shell: bash
+          command: ./gradlew check
