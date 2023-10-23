@@ -24,8 +24,10 @@ runs:
             local currentRetry=$4
           
             # Run the command and keep the exit code
+            echo "Running command $command"
             $command
             local exit_code=$?
+            echo "Exit code $exit_code"
           
             # If the exit code is a non-zero value (i.e. command failed), and we have not
             # reached the maximum number of retries, run the command again
