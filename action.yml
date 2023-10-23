@@ -35,7 +35,7 @@ runs:
               sleep $retryWait
 
               echo "Retry command for the $(($currentRetry + 1)) time(s)"
-			  
+ 
               retry $(($retries - 1)) $retryWait "$command" $(($currentRetry + 1))
             else
               # Return the exit code from the command
