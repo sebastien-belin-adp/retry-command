@@ -16,6 +16,6 @@ jobs:
       - name: Run command
         uses: sebastien-belin-adp/retry-command@main
         with:
-         command: "./gradlew check"
+         command: "${{ inputs.command }}"
          max_retries: 5
          retry_wait: 2
