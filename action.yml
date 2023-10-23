@@ -27,18 +27,12 @@ runs:
             echo "Running command $command"
 
             # Disable set -e
-            if [[ $options == *e* ]]; then
-              echo "Disable set -e"
-              set +e
-            fi
+            set +e
             
             $command
 
             # Restore initial options
-            if [[ $options == *e* ]]; then
-              echo "Restore set -e"
-              set -e
-            fi
+            set -e
             
             local exit_code=$?
             echo "Exit code $exit_code"
