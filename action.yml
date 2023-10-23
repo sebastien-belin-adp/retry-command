@@ -17,7 +17,6 @@ runs:
   steps:
     - name: Run command
       run: |
-          echo $ORG_GRADLE_PROJECT_repoUsername
           retry() {
             local retries=$1
             local retryWait=$2
@@ -32,7 +31,6 @@ runs:
             
             $command          
             local exit_code=$?
-            echo "Exit code $exit_code"
 
             # Restore initial options
             set -e
@@ -40,7 +38,7 @@ runs:
             # If the exit code is a non-zero value (i.e. command failed), and we have not
             # reached the maximum number of retries, run the command again
             if [[ $exit_code -ne 0 && $retries -gt 0 ]]; then
-              echo "::warning ::Attempt $(($currentRetry)) failed. Reason: $exit_code"
+              echo "::warning ::Attempt $(($currentRetry)) failed. Exit code: $exit_code"
               
               # Wait before attending a retry
               echo "::notice ::Wait ${retryWait}s before retrying command"
