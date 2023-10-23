@@ -24,7 +24,7 @@ runs:
             local currentRetry="${4:-1}"
           
             # Run the command and keep the exit code
-            echo "Running command $command"
+            echo "Running command '$command'"
 
             # Disable set -e
             set +e
