@@ -1,16 +1,16 @@
-name: 'Retry Command'
-description: 'Retry a simple command'
+name: "Retry Command"
+description: "Retry a simple command"
 inputs:
   command:
-    description: 'Command to run'
+    description: "Command to run"
     required: true
   max_retries:
-    description: 'Maximum number of attends to retry the command. Default 3'
-    default: 3
+    description: "Maximum number of attends to retry the command. Default 3"
+    default: "3"
     required: false
   retry_wait:
-    description: 'Number of seconds to wait between retry attends. Default 5 seconds'
-    default: 5
+    description: "Number of seconds to wait between retry attends. Default 5 seconds"
+    default: "5"
     required: false
 runs:
   using: "composite"
@@ -19,7 +19,5 @@ runs:
       run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
     - name: Run command
-      run: |
-        chmod +x retry.sh
-        retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
+      run: retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
       shell: bash
