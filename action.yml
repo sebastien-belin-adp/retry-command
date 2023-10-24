@@ -15,6 +15,9 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: chmod +x goodbye.sh
     - name: Run command
-      run: retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
+      run: |
+        ls .
+        retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
       shell: bash
