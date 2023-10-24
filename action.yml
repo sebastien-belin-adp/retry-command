@@ -16,5 +16,5 @@ runs:
   using: "composite"
   steps:
     - name: Run command
-      run: bin/retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
+      run: retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
       shell: bash
