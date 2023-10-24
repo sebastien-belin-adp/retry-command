@@ -39,4 +39,5 @@ retry() {
   fi
 }
 
+echo "::notice ::Running retry-command wirh command: '$command', max_retries: $max_retries, retry_wait: $retry_wait"
 retry $max_retries $retry_wait "$command"
