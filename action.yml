@@ -16,6 +16,7 @@ runs:
   using: "composite"
   steps:
     - run: chmod +x retry.sh
+      shell: bash
     - name: Run command
       run: |
         ls .
