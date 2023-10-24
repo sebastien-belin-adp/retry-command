@@ -19,5 +19,5 @@ runs:
       run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
     - name: Run command
-      run: retry.sh ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
+      run: retry-command ${{ inputs.max_retries }} ${{ inputs.retry_wait }} "${{ inputs.command }}"
       shell: bash
