@@ -22,7 +22,16 @@ The number of seconds to wait before the next retry. Defaults to 5.
 
 # Example
 
-## Simple
+## Default
+
+```yaml
+name: Run command
+uses: sebastien-belin-adp/retry-command@main
+  with:
+    command: ./gradlew check
+```
+
+## With max_retries and retry_wait
 
 ```yaml
 name: Run command
