@@ -15,7 +15,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: chmod +x goodbye.sh
+    - run: chmod +x retry.sh
     - name: Run command
       run: |
         ls .
