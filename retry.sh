@@ -2,7 +2,7 @@
 
 max_retries=$1
 retry_wait=$2
-command="$3"
+command=$3
 
 retry() {
   local retries=$1
@@ -39,4 +39,4 @@ retry() {
   fi
 }
 
-retry $max_retries $retry_wait $command
+retry $max_retries $retry_wait "$command"
